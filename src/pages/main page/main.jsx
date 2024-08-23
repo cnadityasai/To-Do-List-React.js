@@ -6,33 +6,36 @@ function Main() {
   const [items, setItems] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
-  const addItem = () => {
+  function addItem() {
     if (inputValue.trim() === "") return;
-
-    const newItem = {
+    const list = {
       id: `task${items.length + 1}`,
       title: inputValue,
     };
 
-    setItems([...items, newItem]);
+    setItems([...items, list]);
     setInputValue("");
-  };
+  }
+
+  function changeInput(event) {
+    setInputValue(event.target.value);
+  }
 
   return (
     <div className="mainBox">
       <div className="heading">To-Do List</div>
       <div className="inputBox">
         <input
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
           placeholder="Add a new task"
+          value={inputValue}
+          onChange={changeInput}
         />
         <button onClick={addItem}> + </button>
       </div>
 
       <div className="listItems">
         {items.map((item) => (
-          <List key={item.id} title={item.title} id={item.id}></List>
+          <List key={item.key} id={item.id} title={item.title} />
         ))}
       </div>
     </div>
