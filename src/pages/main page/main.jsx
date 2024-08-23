@@ -22,21 +22,23 @@ function Main() {
   }
 
   return (
-    <div className="mainBox">
-      <div className="heading">To-Do List</div>
-      <div className="inputBox">
-        <input
-          placeholder="Add a new task"
-          value={inputValue}
-          onChange={changeInput}
-        />
-        <button onClick={addItem}> + </button>
-      </div>
+    <div className="ultiBox">
+      <div className="mainBox">
+        <div className="heading">To-Do List</div>
+        <div className="inputBox">
+          <input
+            placeholder="Add a new task"
+            value={inputValue}
+            onChange={changeInput}
+          />
+          <button onClick={addItem}> + </button>
+        </div>
 
-      <div className="listItems">
-        {items.map((item) => (
-          <List key={item.key} id={item.id} title={item.title} />
-        ))}
+        <div className="listItems">
+          {items.map((item) => (
+            <List key={item.key} id={item.id} title={item.title} />
+          ))}
+        </div>
       </div>
     </div>
   );
