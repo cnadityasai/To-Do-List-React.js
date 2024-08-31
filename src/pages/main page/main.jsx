@@ -17,6 +17,13 @@ function Main() {
     setInputValue("");
   }
 
+  function handleKey(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      addItem();
+    }
+  }
+
   function changeInput(event) {
     setInputValue(event.target.value);
   }
@@ -30,6 +37,7 @@ function Main() {
             placeholder="Add a new task"
             value={inputValue}
             onChange={changeInput}
+            onKeyDown={handleKey}
           />
           <button onClick={addItem}> + </button>
         </div>

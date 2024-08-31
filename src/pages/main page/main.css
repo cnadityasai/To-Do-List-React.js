@@ -9,6 +9,10 @@
   align-items: center;
 }
 
+button {
+  cursor: pointer;
+}
+
 .mainBox {
   width: 50%;
   display: flex;
