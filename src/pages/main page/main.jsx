@@ -24,6 +24,10 @@ function Main() {
     }
   }
 
+  function handleDelete(id) {
+    setItems(items.filter((task) => task.id !== id));
+  }
+
   function changeInput(event) {
     setInputValue(event.target.value);
   }
@@ -44,7 +48,12 @@ function Main() {
 
         <div className="listItems">
           {items.map((item) => (
-            <List key={item.key} id={item.id} title={item.title} />
+            <List
+              key={item.key}
+              id={item.id}
+              title={item.title}
+              onDelete={handleDelete}
+            />
           ))}
         </div>
       </div>
